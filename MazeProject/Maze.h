@@ -28,6 +28,7 @@ namespace my
 
 		inline size_t size_row() const;
 		inline size_t size_col() const;
+		const character& operator()(const size_t& x,const size_t& y) const;
 
 		friend ostream& operator<<(ostream& os, const Maze& maze);
 	};

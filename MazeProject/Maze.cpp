@@ -56,6 +56,12 @@ namespace my
 		return map[0].size();
 	}
 
+	//返回迷宫的元素
+	const character& Maze::operator()(const size_t& x, const size_t& y) const
+	{
+		return map[x][y];
+	}
+
 	//打印迷宫
 	ostream& operator<<(ostream& os, const Maze& maze)
 	{
