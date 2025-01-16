@@ -2,14 +2,18 @@
 
 using namespace my;
 
+//TODO: inline size, operator()
+
 int main()
 {
-	//Maze maze(vector<vector<character>>());
-	//vector<vector<int>> chs{
-	//	{10,20,30,40,50},
-	//	{100,200,300,400,500}
+	//vector<vector<int>> nums{
+	//	{0,1,0},
+	//	{1,0,1}
 	//};
-	//Maze maze;
+	//Maze maze(nums);
 	//cout << maze << endl;
-
+	//cout << maze.size_row()<< endl;
+	//cout << maze.size_col()<< endl;
+	//Maze maze2(maze);
+	//cout << endl << maze2 << endl;
 }

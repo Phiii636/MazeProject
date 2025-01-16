@@ -8,56 +8,26 @@ namespace my
 		map = maze.map;
 	}
 
-	//使用数字存储迷宫的转换构造
-	//Maze::Maze(const vector<vector<int>>& numInput, const int& numWALL, const int& numPATH)
-	//{
-	//	map = vector<vector<character>>
-	//		(numInput.size(), vector<character>(numInput[0].size()));
-	//
-	//	for(size_t i = 0;i<numInput.size();++i)
-	//		for (size_t j = 0; j < numInput[0].size(); ++j)
-	//		{
-	//			if (numInput[i][j] == numWALL)
-	//				map[i][j] = WALL;
-	//			else if (numInput[i][j] == numPATH)
-	//				map[i][j] = PATH;
-	//			else
-	//			{
-	//				cout << "迷宫初始化错误！" << endl;
-	//				return;
-	//			}
-	//		}
-	//}
-
-	//字符数组输入
-	Maze::Maze(const vector<vector<character>>& chInput)
+	//数组构造
+	Maze::Maze(const vector<vector<int>>& input)
 	{
-		map = chInput;
-	}
-
-	//替换字符
-	void Maze::ReplaceCh(const character& before, const character& after)
-	{
-		for (auto& row : map)
-			for (auto& ch : row)
-				if (ch == before)
-					ch = after;
+		map = input;
 	}
 
 	//行数
-	inline size_t Maze::size_row() const
+	size_t Maze::size_row() const
 	{
 		return map.size();
 	}
 
 	//列数
-	inline size_t Maze::size_col() const
+	size_t Maze::size_col() const
 	{
 		return map[0].size();
 	}
 
 	//返回迷宫的元素
-	const character& Maze::operator()(const size_t& x, const size_t& y) const
+	const int& Maze::operator()(const size_t& x, const size_t& y) const
 	{
 		return map[x][y];
 	}
@@ -65,10 +35,28 @@ namespace my
 	//打印迷宫
 	ostream& operator<<(ostream& os, const Maze& maze)
 	{
-		for (auto row : maze.map)
+		for (const auto& row : maze.map)
 		{
-			for (auto ch : row)
-				os << ch;
+			for (const auto& sto : row)
+			{
+				switch(sto)
+				{
+				case STO_WALL:
+					os << PRI_WALL;
+					break;
+				case STO_PATH:
+					os << PRI_PATH;
+					break;
+				case STO_BEGIN:
+					os << PRI_BEGIN;
+					break;
+				case STO_END:
+					os << PRI_END;
+					break;
+				default:
+					break;
+				}
+			}
 			os << endl;
 		}
 
